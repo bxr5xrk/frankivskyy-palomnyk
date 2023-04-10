@@ -8,7 +8,7 @@ export default function Layout() {
       <div className="flex w-full max-w-7xl flex-grow flex-col justify-center p-2">
         <Header />
 
-        <main className="w-full flex-grow">
+        <main className="w-full flex-grow p-4">
           <Outlet />
         </main>
 

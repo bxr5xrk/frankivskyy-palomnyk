@@ -19,7 +19,7 @@ export default function Categories() {
   };
 
   return (
-    <div className="flex gap-2 p-2">
+    <div className="flex gap-2">
       {categories.map((category) => (
         <Badge
           isActive={activeCategories.includes(category)}

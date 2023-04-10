@@ -10,7 +10,7 @@ export default function TourList() {
   }
 
   return tours ? (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+    <ul className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
       {tours.map((tour) => (
         <TourItem
           date={{ start: tour.start_date, end: tour.end_date }}

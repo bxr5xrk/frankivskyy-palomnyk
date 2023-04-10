@@ -5,11 +5,15 @@ import { Calendar } from '@/widgets/Calendar';
 export default function HomePage() {
   return (
     <>
-      <Categories />
+      <div className="flex gap-10">
+        <Calendar />
 
-      <Calendar />
+        <div className="space-y-4">
+          <Categories />
 
-      <TourList />
+          <TourList />
+        </div>
+      </div>
     </>
   );
 }

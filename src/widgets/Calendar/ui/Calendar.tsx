@@ -1,5 +1,6 @@
 import { type Tour, useTours } from '@/features/tours';
 import { formatDate } from '@/shared/lib/formatDate';
+import { Link } from 'react-router-dom';
 
 interface CalendarItem extends Pick<Tour, 'start_date' | 'id' | 'title'> {}
 
@@ -35,18 +36,36 @@ export default function Calendar() {
     }))
   );
 
-  console.log(calendarConfig);
-
   return (
-    <div>
-      <h1>Календар</h1>
+    <div className="flex w-[300px] rounded-md bg-gray-50 px-2">
+      {/* <h1 className="min-w-[300px] text-base font-semibold capitalize leading-6 text-gray-900">
+        Календар
+      </h1> */}
 
-      {/* {sortedTours?.map((i) => (
-        <div key={i.id}>
-          <h2>{formatDate(i.start_date)}</h2>
-          <p>{i.title}</p>
-        </div>
-      ))} */}
+      <ul className="flex flex-col divide-y overflow-hidden">
+        {Object.keys(calendarConfig).map((month) => (
+          <li className="space-y-2 p-3" key={month}>
+            <h2 className="text-base font-semibold capitalize leading-6 text-gray-900">
+              {month}
+            </h2>
+
+            <div className="ml-3">
+              {calendarConfig[month].map((tour) => (
+                <Link
+                  to={`/tours/${tour.id}`}
+                  className="flex flex-col space-y-1 rounded-md p-2 hover:bg-gray-100"
+                  key={tour.id}
+                >
+                  <p className="text-gray-500">{formatDate(tour.start_date)}</p>
+                  <p className="truncate font-medium text-gray-900">
+                    {tour.title}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
