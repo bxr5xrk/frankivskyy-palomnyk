@@ -1,6 +1,6 @@
 import { NavBar } from '@/widgets/NavBar';
 import { Link } from 'react-router-dom';
-import logo from '../../../../public/logo.png';
+import logo from '@/assets/logo.png';
 
 export default function Header() {
   return (
