@@ -5,11 +5,13 @@ import type { RootState } from '@/app/store';
 export interface filtersState {
   categories: string[];
   query: string;
+  orderBy: string;
 }
 
 const initialState: filtersState = {
   categories: [],
-  query: ''
+  query: '',
+  orderBy: 'DATE'
 };
 
 export const filtersSlice = createSlice({
@@ -21,11 +23,14 @@ export const filtersSlice = createSlice({
     },
     setQuery: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
+    },
+    setOrder: (state, action: PayloadAction<string>) => {
+      state.orderBy = action.payload;
     }
   }
 });
 
-export const { setCategories, setQuery } = filtersSlice.actions;
+export const { setCategories, setQuery, setOrder } = filtersSlice.actions;
 
 export const selectFilters = (state: RootState) => state.filters;
 
