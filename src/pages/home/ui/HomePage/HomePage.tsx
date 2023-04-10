@@ -1,15 +1,12 @@
 import { Categories } from '@/entities/Categories';
+import ToursList from '@/entities/Tours/ui/ToursList';
 
 export default function HomePage() {
   return (
     <>
-      <p>HomePage</p>
-
       <Categories />
 
-      <div className="h-40 w-40 p-40"> text</div>
-      <div className="h-40 w-40 p-40"> text</div>
-      <div className="h-40 w-40 p-40"> text</div>
+      <ToursList />
     </>
   );
 }

@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { toursApi } from '@/features/tours';
+import { filtersSlice } from '@/widgets/Filters';
 
 export const store = configureStore({
   reducer: {
+    filters: filtersSlice,
     [toursApi.reducerPath]: toursApi.reducer
   },
   middleware: (getDefaultMiddleware) =>

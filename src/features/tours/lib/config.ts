@@ -1,1 +1,1 @@
-export const API_URL = 'frankivskyy-palomnyk-server.vercel.app';
+export const API_URL = 'https://frankivskyy-palomnyk-server.vercel.app';
