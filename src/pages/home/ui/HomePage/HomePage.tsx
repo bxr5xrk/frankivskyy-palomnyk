@@ -1,4 +1,4 @@
-import { Categories } from '@/features/Categories';
+import { Categories } from '@/entities/Categories';
 
 export default function HomePage() {
   return (

@@ -1,7 +1,12 @@
 import { AppRouter } from './router';
+import { AppStore } from './store';
 
 function App() {
-  return <AppRouter />;
+  return (
+    <AppStore>
+      <AppRouter />
+    </AppStore>
+  );
 }
 
 export default App;
