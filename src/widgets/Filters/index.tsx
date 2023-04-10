@@ -1,3 +1,3 @@
-import { filtersSlice } from './lib/filtersSlice';
+import { filtersSlice, selectFilters } from './lib/filtersSlice';
 
-export { filtersSlice };
+export { filtersSlice, selectFilters };

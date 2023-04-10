@@ -6,7 +6,7 @@ import { filtersSlice } from '@/widgets/Filters';
 
 export const store = configureStore({
   reducer: {
-    filters: filtersSlice,
+    filters: filtersSlice.reducer,
     [toursApi.reducerPath]: toursApi.reducer
   },
   middleware: (getDefaultMiddleware) =>

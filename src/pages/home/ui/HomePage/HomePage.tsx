@@ -1,12 +1,15 @@
 import { Categories } from '@/entities/Categories';
-import ToursList from '@/entities/Tours/ui/ToursList';
+import { TourList } from '@/entities/Tours';
+import { Calendar } from '@/widgets/Calendar';
 
 export default function HomePage() {
   return (
     <>
       <Categories />
 
-      <ToursList />
+      <Calendar />
+
+      <TourList />
     </>
   );
 }

@@ -1,35 +1,21 @@
+import { useAppDispatch, useAppSelector } from '@/app/store';
 import { Badge } from '@/shared/ui/Badge';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  selectFilters,
+  setCategories
+} from '@/widgets/Filters/lib/filtersSlice';
 import { categories } from '../lib/categoriesConfig';
+import { manageCategories } from '../lib/manageCategories';
 
 export default function Categories() {
-  const navigate = useNavigate();
-  const { search } = useLocation();
+  const { categories: activeCategories } = useAppSelector(selectFilters);
 
-  const activeCategories = decodeURI(search)
-    .slice(1)
-    .split('&')
-    .flatMap((i) => i.split('category=').filter(Boolean));
+  const dispatch = useAppDispatch();
 
   const handleClickCategory = (category: string) => {
-    const isCategoryExists = activeCategories.find((i) => i === category);
+    const updatedCategories = manageCategories(activeCategories, category);
 
-    if (isCategoryExists) {
-      const newCategories = activeCategories
-        .filter((i) => i !== category)
-        .map((i) => `category=${encodeURI(i)}`)
-        .filter(Boolean)
-        .join('&');
-
-      navigate('?' + newCategories, { replace: true });
-    } else {
-      const newCategories = [...activeCategories, category]
-        .map((i) => `category=${encodeURI(i)}`)
-        .filter(Boolean)
-        .join('&');
-
-      navigate('?' + newCategories, { replace: true });
-    }
+    dispatch(setCategories(updatedCategories));
   };
 
   return (

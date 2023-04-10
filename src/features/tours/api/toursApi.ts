@@ -1,3 +1,6 @@
+import { useAppSelector } from '@/app/store';
+import { createQueryForCategories } from '@/entities/Categories/lib/manageCategories';
+import { selectFilters } from '@/widgets/Filters';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_URL } from '../lib/config';
 import type { Tour } from '../types/tours';
@@ -8,8 +11,8 @@ export const toursApi = createApi({
     baseUrl: API_URL + '/tours'
   }),
   endpoints: (builder) => ({
-    getTours: builder.query<Tour[], unknown>({
-      query: () => ''
+    getTours: builder.query<Tour[], string>({
+      query: (categories) => (categories.length ? '?' + categories : '')
     }),
     getSingleTour: builder.query<Tour, number>({
       query: (id) => `/${id}`
@@ -17,6 +20,12 @@ export const toursApi = createApi({
   })
 });
 
-const { useGetToursQuery: useTours, useGetSingleTourQuery: useTour } = toursApi;
+const useTours = () => {
+  const { categories } = useAppSelector(selectFilters);
+
+  return useGetToursQuery(createQueryForCategories(categories));
+};
+
+const { useGetToursQuery, useGetSingleTourQuery: useTour } = toursApi;
 
 export { useTours, useTour };
