@@ -25,11 +25,11 @@ export default function TourItem({
   return (
     <li className="group grid">
       <Link to={`/tours/${id}`}>
-        <div className="relative block h-44 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-primary-700 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+        <div className="relative block h-48 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-primary-700 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
           <img
             src={image}
             alt={title}
-            className="pointer-events-none transform object-cover group-hover:opacity-75"
+            className="pointer-events-none h-48 w-full transform object-cover group-hover:opacity-75"
           />
           <button type="button" className="absolute inset-0 focus:outline-none">
             <span className="sr-only">View details for {title}</span>
