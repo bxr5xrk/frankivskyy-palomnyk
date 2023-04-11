@@ -1,4 +1,6 @@
 import { useTour } from '@/features/tours';
+import { formatDate } from '@/shared/lib/formatDate';
+import { formatPrice } from '@/shared/lib/formatPrice';
 import Spinner from '@/shared/ui/Spinner';
 import { useParams } from 'react-router-dom';
 
@@ -10,6 +12,22 @@ export default function TourPage() {
     isLoading,
     isFetching
   } = useTour(Number(id) ?? 0, { skip: !id });
+
+  const stats = tour
+    ? [
+        {
+          name: 'Ціна',
+          value:
+            formatPrice(tour.price, 'USD') +
+            ' + ' +
+            formatPrice(tour.additional_price, 'UAH')
+        },
+        {
+          name: 'Дата',
+          value: formatDate(tour.start_date) + ' - ' + formatDate(tour.end_date)
+        }
+      ]
+    : [];
 
   return (
     <div>
@@ -29,10 +47,7 @@ export default function TourPage() {
           <div className="">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-                {[
-                  { name: 'Ціна', value: tour.price },
-                  { name: 'Дата', value: tour.start_date }
-                ].map((stat) => (
+                {stats.map((stat) => (
                   <div
                     key={stat.name}
                     className="mx-auto flex max-w-xs flex-col gap-y-4"

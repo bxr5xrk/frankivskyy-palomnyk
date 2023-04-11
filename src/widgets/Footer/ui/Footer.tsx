@@ -22,7 +22,7 @@ export default function Footer() {
                 target="_blank"
                 key={item.name}
                 href={item.href}
-                className="text-gray-400 hover:text-gray-500"
+                className="text-gray-600 hover:text-gray-700"
                 rel="noreferrer"
               >
                 <span className="sr-only">{item.name}</span>
@@ -53,6 +53,14 @@ export default function Footer() {
                 <p className="hover:text-gray-900">{name}</p>
               </dd>
             </div>
+
+            <a
+              className="flex items-center gap-2 text-sm leading-6 text-slate-700 transition hover:text-gray-900"
+              href={`mailto:${String(email)}`}
+            >
+              <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
+              <span>{email}</span>
+            </a>
           </section>
 
           <section className="space-y-3">
@@ -66,13 +74,6 @@ export default function Footer() {
                 <span>{tel}</span>
               </a>
             ))}
-            <a
-              className="flex items-center gap-2 text-sm leading-6 text-slate-700 transition hover:text-gray-900"
-              href={`mailto:${String(email)}`}
-            >
-              <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
-              <span>{email}</span>
-            </a>
           </section>
         </div>
       </div>
