@@ -1,6 +1,6 @@
-import { Categories } from '@/entities/Categories';
-import SortingMenu from '@/entities/Sorting/ui/SortingMenu';
-import { TourList } from '@/entities/Tours';
+import { Categories } from '@/features/Categories';
+import { SortingMenu } from '@/features/Sorting';
+import { TourList } from '@/features/Tours';
 import { Calendar } from '@/widgets/Calendar';
 import SideOverCalendar from '@/widgets/Calendar/ui/SideOverCalendar';
 

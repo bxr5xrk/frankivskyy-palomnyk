@@ -14,7 +14,7 @@ export default function Badge({ title, onClick, isActive }: BadgeProps) {
         isActive
           ? 'bg-primary-800 text-primary-100'
           : 'bg-primary-100 text-primary-800',
-        onClick && 'hover:bg-primary-800 hover:text-primary-100',
+        onClick && 'hover:bg-primary-800 hover:text-primary-100', // if clickable add hover
         'inline-flex items-center rounded-full px-3 py-0.5 text-sm font-medium transition'
       )}
     >

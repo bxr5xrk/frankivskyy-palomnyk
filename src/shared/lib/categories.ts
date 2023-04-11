@@ -1,6 +1,3 @@
-export const createQueryForCategories = (categories: string[]) =>
-  categories.map((i) => `categories_like=${i}`).join('&');
-
 export const manageCategories = (
   activeCategories: string[],
   category: string

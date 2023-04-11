@@ -1,4 +1,4 @@
-import { useTours } from '@/features/tours';
+import { useTours } from '@/entities/tours';
 import { formatDate } from '@/shared/lib/formatDate';
 import { Link } from 'react-router-dom';
 import { groupEventsByMonth } from '../lib/groupEventsByMonth';

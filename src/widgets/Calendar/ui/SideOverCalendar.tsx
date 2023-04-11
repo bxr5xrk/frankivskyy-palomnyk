@@ -1,4 +1,4 @@
-import { useTours } from '@/features/tours';
+import { useTours } from '@/entities/tours';
 import { cl } from '@/shared/lib/cl';
 import { formatDate } from '@/shared/lib/formatDate';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';

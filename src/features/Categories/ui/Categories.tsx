@@ -1,11 +1,8 @@
+import { selectFilters, setCategories } from '@/entities/tours';
 import { useAppDispatch, useAppSelector } from '@/app/store';
+import { manageCategories } from '@/shared/lib/categories';
 import { Badge } from '@/shared/ui/Badge';
-import {
-  selectFilters,
-  setCategories
-} from '@/widgets/Filters/lib/filtersSlice';
 import { categories } from '../lib/categoriesConfig';
-import { manageCategories } from '../lib/manageCategories';
 
 export default function Categories() {
   const { categories: activeCategories } = useAppSelector(selectFilters);

@@ -1,4 +1,4 @@
-import { useTours } from '@/features/tours';
+import { useTours } from '@/entities/tours';
 import Spinner from '@/shared/ui/Spinner';
 import TourItem from './TourItem';
 

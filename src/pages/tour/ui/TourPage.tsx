@@ -1,4 +1,4 @@
-import { useTour } from '@/features/tours';
+import { useTour } from '@/shared/api/tours';
 import { diffDates } from '@/shared/lib/diffDates';
 import { formatDate } from '@/shared/lib/formatDate';
 import { formatPrice } from '@/shared/lib/formatPrice';

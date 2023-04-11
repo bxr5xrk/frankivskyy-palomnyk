@@ -1,4 +1,4 @@
-import { type Tour } from '@/features/tours';
+import type { Tour } from '@/shared/types/tours';
 
 interface CalendarItem extends Pick<Tour, 'start_date' | 'id' | 'title'> {}
 

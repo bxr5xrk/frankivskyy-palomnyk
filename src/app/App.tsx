@@ -1,5 +1,5 @@
-import { AppRouter } from './router';
-import { AppStore } from './store';
+import { AppRouter } from '@/shared/config/router';
+import { AppStore } from '@/app/store';
 
 function App() {
   return (

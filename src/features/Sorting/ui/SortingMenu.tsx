@@ -1,14 +1,12 @@
+import { setOrder } from '@/entities/tours';
 import { useAppDispatch } from '@/app/store';
-import SelectMenu from '@/shared/ui/SelectMenu/ui/SelectMenu';
-import { setOrder } from '@/widgets/Filters/lib/filtersSlice';
+import { SelectMenu } from '@/shared/ui/SelectMenu';
 import { options } from '../lib/sortingValues';
 
 export default function SortingMenu() {
   const dispatch = useAppDispatch();
 
-  const onChange = (option: string) => {
-    dispatch(setOrder(option));
-  };
+  const onChange = (option: string) => dispatch(setOrder(option));
 
   return (
     <SelectMenu

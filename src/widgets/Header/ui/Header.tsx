@@ -10,7 +10,7 @@ export default function Header() {
         <img src={logo} alt="logo" className="w-10 sm:w-12" />
 
         <div className="flex flex-col">
-          <h1 className="text-default text-base font-bold md:text-xl">
+          <h1 className="text-base font-bold md:text-xl">
             Франківський Паломник
           </h1>
           <h3 className="font-medium text-primary-700 md:font-semibold">

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
-import { toursApi } from '@/features/tours';
-import { filtersSlice } from '@/widgets/Filters';
+import { toursApi } from '@/shared/api/tours';
+import { filtersSlice } from '@/entities/tours/model/filtersSlice';
 
 export const store = configureStore({
   reducer: {
