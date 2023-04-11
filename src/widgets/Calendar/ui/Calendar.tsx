@@ -22,7 +22,7 @@ const groupEventsByMonth = (events: CalendarItem[]) => {
 };
 
 export default function Calendar() {
-  const { data: tours } = useTours();
+  const { data: tours } = useTours({ filters: false });
 
   const sortedTours = tours
     ? [...tours].sort((a, b) => a.start_date.localeCompare(b.start_date))
@@ -37,7 +37,7 @@ export default function Calendar() {
   );
 
   return (
-    <div className="flex w-[300px] rounded-md bg-gray-50 px-2">
+    <div className="min-h-[300px] min-w-[300px] max-w-[300px] rounded-md bg-gray-50 px-2">
       {/* <h1 className="min-w-[300px] text-base font-semibold capitalize leading-6 text-gray-900">
         Календар
       </h1> */}

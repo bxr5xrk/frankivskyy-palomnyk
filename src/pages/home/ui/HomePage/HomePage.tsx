@@ -9,7 +9,7 @@ export default function HomePage() {
       <div className="flex gap-10">
         <Calendar />
 
-        <div className="space-y-4">
+        <div className="w-full space-y-4">
           <div className="flex items-center justify-between">
             <Categories />
 

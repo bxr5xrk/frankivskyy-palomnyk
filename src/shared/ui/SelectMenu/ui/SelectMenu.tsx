@@ -20,7 +20,7 @@ export default function SelectMenu({
     <div className="flex items-center justify-center gap-3">
       <label
         htmlFor={id}
-        className="mt-1.5 block whitespace-nowrap text-sm font-medium leading-6 text-gray-900"
+        className="block whitespace-nowrap text-sm font-medium leading-6 text-gray-900"
       >
         {label}
       </label>
@@ -28,7 +28,7 @@ export default function SelectMenu({
         onChange={(e) => onChange(e.target.value)}
         id={id}
         name={id}
-        className="mt-2 block w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-primary-600 sm:text-sm sm:leading-6"
+        className="block w-full rounded-md border border-primary-300 bg-white py-1.5 pl-3 pr-10 text-gray-900 outline-none ring-1 ring-inset ring-primary-300 focus:ring-2 focus:ring-primary-600 sm:text-sm sm:leading-6"
         defaultValue={options[0].key}
       >
         {options.map((i) => (

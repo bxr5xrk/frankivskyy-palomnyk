@@ -12,8 +12,12 @@ export const toursApi = createApi({
     baseUrl: API_URL + '/tours'
   }),
   endpoints: (builder) => ({
-    getTours: builder.query<Tour[], { order: string; categories: string }>({
-      query: ({ order, categories }) => '?' + order + categories
+    getTours: builder.query<
+      Tour[],
+      { applyFilters: boolean; order: string; categories: string }
+    >({
+      query: ({ applyFilters, order, categories }) =>
+        applyFilters ? '?' + order + '&' + categories : ''
     }),
     getSingleTour: builder.query<Tour, number>({
       query: (id) => `/${id}`
@@ -21,13 +25,17 @@ export const toursApi = createApi({
   })
 });
 
-const useTours = () => {
+const useTours = ({ filters }: { filters: boolean }) => {
   const { categories, orderBy } = useAppSelector(selectFilters);
 
   const orderParam = stringifyOrderToQuery(orderBy);
   const categoriesParam = createQueryForCategories(categories);
 
-  return useGetToursQuery({ categories: categoriesParam, order: orderParam });
+  return useGetToursQuery({
+    categories: categoriesParam,
+    order: orderParam,
+    applyFilters: filters
+  });
 };
 
 const { useGetToursQuery, useGetSingleTourQuery: useTour } = toursApi;

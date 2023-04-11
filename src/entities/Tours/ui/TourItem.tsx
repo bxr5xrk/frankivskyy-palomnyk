@@ -48,7 +48,7 @@ export default function TourItem({
 
       <div className="mt-2 flex flex-wrap gap-2">
         {categories.map((i) => (
-          <Badge key={i} title={i} theme="primary" />
+          <Badge key={i} title={i} />
         ))}
       </div>
     </li>

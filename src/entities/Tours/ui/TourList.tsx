@@ -3,7 +3,7 @@ import Spinner from '@/shared/ui/Spinner';
 import TourItem from './TourItem';
 
 export default function TourList() {
-  const { data: tours, isLoading, isFetching } = useTours();
+  const { data: tours, isLoading, isFetching } = useTours({ filters: true });
 
   if (isLoading || isFetching) {
     return <Spinner />;
