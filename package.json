@@ -14,6 +14,7 @@
     "lint:fix": "clear && eslint 'src/**/*.{ts,tsx,js}' --config .eslintrc.cjs --fix"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.17",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/react-redux": "^7.1.25",
     "react": "^18.2.0",
