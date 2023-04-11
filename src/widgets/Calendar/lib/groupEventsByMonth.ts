@@ -1,9 +1,7 @@
-import type { Tour } from '@/shared/types/tours';
-
-interface CalendarItem extends Pick<Tour, 'start_date' | 'id' | 'title'> {}
+import type { Calendar, CalendarItem } from '@/shared/types/tours';
 
 export const groupEventsByMonth = (events: CalendarItem[]) => {
-  const groups: Record<string, CalendarItem[]> = {};
+  const groups: Calendar = {};
   events.forEach((event) => {
     const date = new Date(event.start_date);
     const month = date.toLocaleDateString('uk-UA', {

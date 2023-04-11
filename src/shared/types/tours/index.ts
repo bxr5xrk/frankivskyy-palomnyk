@@ -11,3 +11,8 @@ export interface Tour {
   categories: string[];
   attractions: string;
 }
+
+export interface CalendarItem
+  extends Pick<Tour, 'start_date' | 'id' | 'title'> {}
+
+export type Calendar = Record<string, CalendarItem[]>;

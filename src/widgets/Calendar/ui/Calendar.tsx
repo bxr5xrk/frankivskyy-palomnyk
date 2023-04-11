@@ -1,10 +1,17 @@
 import { useTours } from '@/entities/tours';
-import { formatDate } from '@/shared/lib/formatDate';
-import { Link } from 'react-router-dom';
+import { allowOrDisallowScroll } from '@/shared/lib/allowOrDisallowScroll';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { groupEventsByMonth } from '../lib/groupEventsByMonth';
+import List from './List';
+import SideOverWrapper from './SideOverWrapper';
+import SideWrapper from './SideWrapper';
+import Toggle from './Toggle';
 
 export default function Calendar() {
+  const navigate = useNavigate();
   const { data: tours } = useTours({ filters: false });
+  const [showSideOver, setShowSideOver] = useState(false);
 
   const sortedTours = tours
     ? [...tours].sort((a, b) => a.start_date.localeCompare(b.start_date))
@@ -18,36 +25,40 @@ export default function Calendar() {
     }))
   );
 
+  const handleClickTour = (id: number) => {
+    if (showSideOver) {
+      setShowSideOver(false);
+    }
+
+    allowOrDisallowScroll(true);
+    navigate(`/tours/${id}`);
+  };
+
   return (
-    <div className="mr-10 hidden min-h-[300px] min-w-[300px] max-w-[300px] rounded-md bg-gray-50 px-2 md:block">
-      {/* <h1 className="min-w-[300px] text-base font-semibold capitalize leading-6 text-gray-900">
-        Календар
-      </h1> */}
+    <>
+      <SideWrapper>
+        <List calendarConfig={calendarConfig} handleClick={handleClickTour} />
+      </SideWrapper>
 
-      <ul className="flex flex-col divide-y overflow-hidden">
-        {Object.keys(calendarConfig).map((month) => (
-          <li className="space-y-2 p-3" key={month}>
-            <h2 className="text-base font-semibold capitalize leading-6 text-gray-900">
-              {month}
-            </h2>
-
-            <div className="ml-3">
-              {calendarConfig[month].map((tour) => (
-                <Link
-                  to={`/tours/${tour.id}`}
-                  className="flex flex-col space-y-1 rounded-md p-2 hover:bg-gray-100"
-                  key={tour.id}
-                >
-                  <p className="text-gray-500">{formatDate(tour.start_date)}</p>
-                  <p className="truncate font-medium text-gray-900">
-                    {tour.title}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <SideOverWrapper
+        show={showSideOver}
+        icon={
+          !showSideOver ? (
+            <Toggle
+              onClick={() => {
+                allowOrDisallowScroll(false);
+                setShowSideOver(true);
+              }}
+            />
+          ) : null
+        }
+        onHide={() => {
+          allowOrDisallowScroll(true);
+          setShowSideOver(false);
+        }}
+      >
+        <List calendarConfig={calendarConfig} handleClick={handleClickTour} />
+      </SideOverWrapper>
+    </>
   );
 }
