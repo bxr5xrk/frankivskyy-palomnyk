@@ -40,7 +40,9 @@ export default function Footer() {
                 <BuildingOffice2Icon className="h-7 w-6" aria-hidden="true" />
               </dt>
               <dd>
-                <p className="hover:text-gray-900">{address}</p>
+                <p className="whitespace-normal hover:text-gray-900">
+                  {address}
+                </p>
               </dd>
             </div>
 
