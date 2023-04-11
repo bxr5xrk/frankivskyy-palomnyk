@@ -30,7 +30,10 @@ export default function SideOverCalendar() {
         <button
           type="button"
           className="fixed -left-10 top-20 z-20 inline-flex h-16 w-16 rounded-full border border-primary-600 bg-primary-400 p-3 pl-4 pt-4"
-          onClick={() => setShow(true)}
+          onClick={() => {
+            document.body.style.overflowY = 'hidden';
+            setShow(true);
+          }}
         >
           <ChevronRightIcon className="absolute right-0 top-5 h-5 w-5 text-white" />
         </button>
@@ -38,7 +41,10 @@ export default function SideOverCalendar() {
 
       {/* background */}
       <div
-        onClick={() => setShow(false)}
+        onClick={() => {
+          document.body.style.overflowY = 'auto';
+          setShow(false);
+        }}
         className={cl(
           'fixed inset-0 z-10 bg-black opacity-50 duration-200 ease-in-out lg:invisible',
           show ? 'visible' : 'invisible'
@@ -55,7 +61,10 @@ export default function SideOverCalendar() {
         <button
           type="button"
           className="inline-block pl-4 pt-4"
-          onClick={() => setShow(false)}
+          onClick={() => {
+            document.body.style.overflowY = 'auto';
+            setShow(false);
+          }}
         >
           <ChevronLeftIcon className="h-5 w-5" />
         </button>
@@ -71,6 +80,7 @@ export default function SideOverCalendar() {
                   {calendarConfig[month].map((tour) => (
                     <button
                       onClick={() => {
+                        document.body.style.overflowY = 'auto';
                         navigate(`/tours/${tour.id}`);
                         setShow(false);
                       }}
