@@ -25,7 +25,7 @@ export default function TourItem({
   return (
     <li className="group grid">
       <Link to={`/tours/${id}`}>
-        <div className="relative block h-44 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+        <div className="relative block h-44 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-primary-700 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
           <img
             src={image}
             alt={title}

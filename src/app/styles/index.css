@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --text-color: #2a2a2c;
-  --primary-color: #701236;
-  --bg-color: #fff;
-  --secondary-color: #cdbcac;
-}
-
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;

@@ -17,8 +17,8 @@ export default function NavBar() {
           key={item.name}
           to={item.href}
           className={cl(
-            pathname === item.href ? 'text-primary' : ' text-slate-700',
-            'text-sm font-semibold leading-6 hover:text-primary'
+            pathname === item.href ? 'text-primary-700' : ' text-slate-700',
+            'text-sm font-semibold leading-6 transition hover:text-primary-700'
           )}
         >
           {item.name}

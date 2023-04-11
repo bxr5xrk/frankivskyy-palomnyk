@@ -3,7 +3,7 @@ export default function Spinner() {
     <div className="flex h-full w-full justify-center">
       <svg
         fill="none"
-        className="h-10 w-10 animate-spin text-primary"
+        className="h-10 w-10 animate-spin text-primary-700"
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
       >

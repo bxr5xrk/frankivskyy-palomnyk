@@ -1,4 +1,4 @@
-import { NavBar } from '@/widgets/NavBar';
+import { NavBar } from '@/features/NavBar';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
@@ -10,10 +10,12 @@ export default function Header() {
         <img src={logo} alt="logo" width={50} />
 
         <div className="flex flex-col">
-          <h1 className="text-xl font-bold text-default">
+          <h1 className="text-default text-xl font-bold">
             Франківський Паломник
           </h1>
-          <h3 className="font-semibold text-secondary">#Ми знаємо напрямок</h3>
+          <h3 className="font-semibold text-primary-700">
+            #Ми знаємо напрямок
+          </h3>
         </div>
       </Link>
 
