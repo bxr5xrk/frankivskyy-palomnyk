@@ -1,10 +1,9 @@
 import { useTour } from '@/shared/api/tours';
-import { diffDates } from '@/shared/lib/diffDates';
-import { formatDate } from '@/shared/lib/formatDate';
-import { formatPrice } from '@/shared/lib/formatPrice';
 import Spinner from '@/shared/ui/Spinner';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getStats } from '../lib/getStats';
 
 export default function TourPage() {
   const { id } = useParams();
@@ -15,25 +14,13 @@ export default function TourPage() {
     isFetching
   } = useTour(Number(id) ?? 0, { skip: !id });
 
-  const stats = tour
-    ? [
-        {
-          name: 'Ціна',
-          value:
-            formatPrice(tour.price, 'USD') +
-            ' + ' +
-            formatPrice(tour.additional_price, 'UAH')
-        },
-        {
-          name: 'Тривалість',
-          value: diffDates(tour.start_date, tour.end_date) + ' днів'
-        },
-        {
-          name: 'Дата',
-          value: formatDate(tour.start_date) + ' - ' + formatDate(tour.end_date)
-        }
-      ]
-    : [];
+  const stats = useMemo(() => getStats(tour), []);
+
+  useEffect(() => {
+    if (tour) {
+      document.title = tour.title;
+    }
+  }, [tour]);
 
   return (
     <div>

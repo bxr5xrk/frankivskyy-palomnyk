@@ -1,6 +1,6 @@
 import { useTours } from '@/entities/tours';
 import { allowOrDisallowScroll } from '@/shared/lib/allowOrDisallowScroll';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { groupEventsByMonth } from '../lib/groupEventsByMonth';
 import List from './List';
@@ -13,16 +13,24 @@ export default function Calendar() {
   const { data: tours } = useTours({ filters: false });
   const [showSideOver, setShowSideOver] = useState(false);
 
-  const sortedTours = tours
-    ? [...tours].sort((a, b) => a.start_date.localeCompare(b.start_date))
-    : [];
+  const sortedTours = useMemo(
+    () =>
+      tours
+        ? [...tours].sort((a, b) => a.start_date.localeCompare(b.start_date))
+        : [],
+    [tours]
+  );
 
-  const calendarConfig = groupEventsByMonth(
-    sortedTours.map((i) => ({
-      start_date: i.start_date,
-      id: i.id,
-      title: i.title
-    }))
+  const calendarConfig = useMemo(
+    () =>
+      groupEventsByMonth(
+        sortedTours.map((i) => ({
+          start_date: i.start_date,
+          id: i.id,
+          title: i.title
+        }))
+      ),
+    [sortedTours]
   );
 
   const handleClickTour = (id: number) => {
