@@ -14,7 +14,7 @@ export default function TourPage() {
     isFetching
   } = useTour(Number(id) ?? 0, { skip: !id });
 
-  const stats = useMemo(() => getStats(tour), []);
+  const stats = useMemo(() => getStats(tour), [tour]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

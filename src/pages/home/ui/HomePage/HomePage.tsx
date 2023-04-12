@@ -2,8 +2,13 @@ import { Categories } from '@/features/Categories';
 import { SortingMenu } from '@/features/Sorting';
 import { TourList } from '@/features/Tours';
 import { Calendar } from '@/widgets/Calendar';
+import { useEffect } from 'react';
 
 export default function HomePage() {
+  useEffect(() => {
+    document.title = 'Франківський Паломник';
+  }, []);
+
   return (
     <>
       <div className="relative flex">
