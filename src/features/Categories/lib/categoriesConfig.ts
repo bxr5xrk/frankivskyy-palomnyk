@@ -1,1 +1,1 @@
-export const categories = ["Меджуґор'є", 'Море', 'Італія', 'Будапешт'];
+export const categories = ["Меджуґор'є", 'Італія', 'Будапешт'];

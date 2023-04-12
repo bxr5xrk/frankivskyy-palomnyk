@@ -9,7 +9,7 @@ export default function HomePage() {
       <div className="relative flex">
         <Calendar />
 
-        <div className="w-full space-y-4">
+        <div className="ms:py-0 w-full space-y-4 py-5">
           <div className="flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
             <Categories />
 

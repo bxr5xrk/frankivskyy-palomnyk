@@ -12,9 +12,9 @@ export default function Badge({ title, onClick, isActive }: BadgeProps) {
       onClick={onClick}
       className={cl(
         isActive
-          ? 'bg-primary-800 text-primary-100'
-          : 'bg-primary-100 text-primary-800',
-        onClick && 'hover:bg-primary-800 hover:text-primary-100', // if clickable add hover
+          ? 'bg-primary-800 text-primary-100 hover:bg-primary-900 hover:text-primary-200'
+          : 'bg-primary-100 text-primary-800 hover:bg-primary-200 hover:text-primary-900',
+        onClick ? 'cursor-pointer' : 'cursor-text', // if clickable add pointer
         'inline-flex items-center rounded-full px-3 py-0.5 text-sm font-medium transition'
       )}
     >

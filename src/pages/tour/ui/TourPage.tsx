@@ -17,6 +17,7 @@ export default function TourPage() {
   const stats = useMemo(() => getStats(tour), []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (tour) {
       document.title = tour.title;
     }

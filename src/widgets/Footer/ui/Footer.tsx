@@ -34,10 +34,10 @@ export default function Footer() {
 
         <div className="flex w-full flex-col justify-between gap-5 whitespace-nowrap sm:flex-row sm:gap-20 lg:w-fit">
           <section className="space-y-3 text-sm leading-6">
-            <div className="flex items-center gap-x-4 text-gray-600">
+            <div className="flex items-center gap-x-2 text-gray-600">
               <dt className="flex-none">
                 <span className="sr-only">Address</span>
-                <BuildingOffice2Icon className="h-7 w-6" aria-hidden="true" />
+                <BuildingOffice2Icon className="h-5 w-5" aria-hidden="true" />
               </dt>
               <dd>
                 <p className="whitespace-normal hover:text-gray-900">
@@ -46,10 +46,10 @@ export default function Footer() {
               </dd>
             </div>
 
-            <div className="flex items-center gap-x-4 text-gray-600">
+            <div className="flex items-center gap-x-2 text-gray-600">
               <dt className="flex-none">
                 <span className="sr-only">Name</span>
-                <UserIcon className="h-7 w-6" aria-hidden="true" />
+                <UserIcon className="h-5 w-5" aria-hidden="true" />
               </dt>
               <dd>
                 <p className="hover:text-gray-900">{name}</p>
